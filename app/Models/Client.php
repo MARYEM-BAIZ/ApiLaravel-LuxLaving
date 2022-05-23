@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Compte;
+use App\Models\Commande;
 use App\Models\Utilisateur;
 use App\Models\ClientAdresseCollect;
 use App\Models\ClientAdresseLivraison;
@@ -37,6 +38,13 @@ class Client extends Model
     public function compte(){
 
         return $this->hasOne(Compte::class, 'id', 'compte_id');
+
+    }
+
+    public function commandes()
+    {
+
+        return $this->hasMany(Commande::class);
 
     }
 }

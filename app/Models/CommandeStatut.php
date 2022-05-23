@@ -2,10 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Commande;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CommandeStatut extends Model
 {
     use HasFactory;
+
+    // setting models relations
+    public function commandes()
+    {
+
+        return $this->hasMany(Commande::class);
+
+    }
 }

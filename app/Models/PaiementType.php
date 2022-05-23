@@ -2,10 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Paiement;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PaiementType extends Model
 {
     use HasFactory;
+
+    // setting models relations
+    public function paiements()
+    {
+
+        return $this->hasMany(Paiement::class);
+
+    }
 }
