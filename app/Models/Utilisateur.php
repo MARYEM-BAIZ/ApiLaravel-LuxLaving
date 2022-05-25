@@ -14,7 +14,7 @@ class Utilisateur extends Model
     // setting models relations
     public function utilisateurStatut(){
 
-        return $this->belongsTo(UtilisateurStatut::class, 'statut_id', 'id');
+        return $this->belongsTo(UtilisateurStatut::class, 'utilisateurstatut_id', 'id');
 
     }
 
