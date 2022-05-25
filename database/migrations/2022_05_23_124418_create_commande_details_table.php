@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('commande_details', function (Blueprint $table) {
             $table->id();
+
+            $table->integer('quantite');
+
+            $table->unsignedBigInteger('commande_id');
+            $table->foreign('commande_id')->references('id')->on('commandes');
+
+            $table->unsignedBigInteger('article_id');
+            $table->foreign('article_id')->references('id')->on('articles');
+
             $table->timestamps();
         });
     }

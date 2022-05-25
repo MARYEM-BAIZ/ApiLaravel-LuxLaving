@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('commande_statuts', function (Blueprint $table) {
             $table->id();
+
+            $table->string('statut')->unique();
+
             $table->timestamps();
         });
     }

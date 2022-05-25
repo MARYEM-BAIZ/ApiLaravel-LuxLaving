@@ -14,13 +14,13 @@ class CommandeDetail extends Model
     // setting models relations
     public function commande(){
 
-        return $this->hasOne(Commande::class);
+        return $this->hasOne(Commande::class, 'commande_id', 'id');
 
     }
 
     public function articles(){
 
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Article::class, 'article_id', 'id');
 
     }
 }
