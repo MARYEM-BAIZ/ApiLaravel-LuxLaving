@@ -18,9 +18,9 @@ class ClientAdresseLivraison extends Model
 
     }
 
-    public function commande(){
+    public function commandes(){
 
-        return $this->belongsTo(Commande::class, 'id', 'adresse_livraison');
+        return $this->hasMany(Commande::class, 'id', 'adresse_livraison');
 
     }
 }

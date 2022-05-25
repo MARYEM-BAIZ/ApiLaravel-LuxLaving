@@ -20,7 +20,7 @@ class Paiement extends Model
 
     public function paiementType(){
 
-        return $this->belongsTo(PaiementType::class, 'id', 'id');
+        return $this->bhasOne(PaiementType::class, 'id', 'id');
 
     }
 }

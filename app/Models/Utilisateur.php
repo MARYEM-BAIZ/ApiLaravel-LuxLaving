@@ -14,7 +14,7 @@ class Utilisateur extends Model
     // setting models relations
     public function utilisateurStatut(){
 
-        return $this->hasOne(UtilisateurStatut::class, 'type', 'statut');
+        return $this->belongsTo(UtilisateurStatut::class, 'type', 'statut');
 
     }
 

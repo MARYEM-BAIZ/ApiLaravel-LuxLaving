@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Client;
+use App\Models\Compte;
 use App\Models\Livreur;
 use App\Models\Paiement;
 use App\Models\CommandeDetail;
@@ -17,9 +17,9 @@ class Commande extends Model
     use HasFactory;
 
     // setting models relations
-    public function client(){
+    public function compte(){
 
-        return $this->belongsTo(Client::class, 'id', 'client_id');
+        return $this->hasOne(Compte::class, 'id', 'client_id');
 
     }
 
@@ -37,19 +37,25 @@ class Commande extends Model
 
     public function paiement(){
 
-        return $this->belongsTo(Paiement::class, 'commande_id', 'id');
+        return $this->hasOne(Paiement::class, 'commande_id', 'id');
 
     }
 
-    public function livreur(){
+    public function livreurCollect(){
 
-        return $this->belongsTo(Livreur::class);
+        return $this->hasOne(Livreur::class);
+
+    }
+
+    public function livreurLivraison(){
+
+        return $this->hasOne(Livreur::class);
 
     }
 
     public function commandeStatut(){
 
-        return $this->belongsTo(CommandeStatut::class);
+        return $this->hasOne(CommandeStatut::class);
 
     }
 

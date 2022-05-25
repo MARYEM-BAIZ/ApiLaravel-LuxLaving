@@ -18,9 +18,9 @@ class ClientAdresseCollect extends Model
 
     }
 
-    public function commande(){
+    public function commandes(){
 
-        return $this->belongsTo(Commande::class, 'id', 'adresse_collecte');
+        return $this->hasMany(Commande::class, 'id', 'adresse_collecte');
 
     }
 }
