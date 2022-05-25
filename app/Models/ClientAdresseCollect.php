@@ -14,13 +14,13 @@ class ClientAdresseCollect extends Model
     // setting models relations
     public function client(){
 
-        return $this->belongsTo(Client::class, 'id', 'adresse_collecte');
+        return $this->belongsTo(Client::class, 'client_id', 'id');
 
     }
 
     public function commandes(){
 
-        return $this->hasMany(Commande::class, 'id', 'adresse_collecte');
+        return $this->hasMany(Commande::class);
 
     }
 }

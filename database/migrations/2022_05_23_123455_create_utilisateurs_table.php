@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('utilisateurs', function (Blueprint $table) {
             $table->id();
+            $table->string('email');
+            $table->string('password');
+
+            $table->unsignedBigInteger('statut_id');
+            $table->foreign('statut_id')->references('id')->on('utilisateur_statuts');
+
             $table->timestamps();
         });
     }

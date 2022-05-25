@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\Compte;
-use App\Models\Commande;
 use App\Models\Utilisateur;
 use App\Models\ClientAdresseCollect;
 use App\Models\ClientAdresseLivraison;
@@ -17,27 +16,27 @@ class Client extends Model
     // setting models relations
     public function utilisateur(){
 
-        return $this->hasOne(Utilisateur::class, 'id', 'user_id');
+        return $this->hasOne(Utilisateur::class, 'user_id', 'id');
 
     }
 
     public function clientAdresseCollects()
     {
 
-        return $this->hasMany(ClientAdresseCollect::class, 'adresse_collecte', 'id');
+        return $this->hasMany(ClientAdresseCollect::class);
 
     }
 
     public function clientAdresseLivraisons()
     {
 
-        return $this->hasMany(ClientAdresseLivraison::class, 'adresse_livraison', 'id');
+        return $this->hasMany(ClientAdresseLivraison::class);
 
     }
 
     public function compte(){
 
-        return $this->hasOne(Compte::class, 'id', 'compte_id');
+        return $this->hasOne(Compte::class);
 
     }
 

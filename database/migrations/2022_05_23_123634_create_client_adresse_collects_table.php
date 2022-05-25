@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('client_adresse_collects', function (Blueprint $table) {
             $table->id();
+
+            $table->string('adresse_collecte');
+
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('id')->on('clients');
+
             $table->timestamps();
         });
     }

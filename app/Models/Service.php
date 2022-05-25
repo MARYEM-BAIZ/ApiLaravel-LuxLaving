@@ -13,7 +13,7 @@ class Service extends Model
     // setting models relations
     public function articles(){
 
-        return $this->hasMany(Article::class, 'article_cat', 'id');
+        return $this->hasMany(Article::class);
 
     }
 }

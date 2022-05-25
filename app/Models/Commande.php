@@ -19,43 +19,43 @@ class Commande extends Model
     // setting models relations
     public function compte(){
 
-        return $this->hasOne(Compte::class, 'id', 'client_id');
+        return $this->hasOne(Compte::class);
 
     }
 
     public function clientAdresseLivraison(){
 
-        return $this->hasOne(ClientAdresseLivraison::class, 'id', 'adresse_livraison_id');
+        return $this->hasOne(ClientAdresseLivraison::class, 'adresse_livraison_id', 'id');
 
     }
 
     public function clientAdresseCollect(){
 
-        return $this->hasOne(ClientAdresseCollect::class, 'id', 'adresse_collecte_id');
+        return $this->hasOne(ClientAdresseCollect::class, 'adresse_collecte_id', 'id');
 
     }
 
     public function paiement(){
 
-        return $this->hasOne(Paiement::class, 'commande_id', 'id');
+        return $this->hasOne(Paiement::class);
 
     }
 
     public function livreurCollect(){
 
-        return $this->hasOne(Livreur::class);
+        return $this->hasOne(Livreur::class, 'livreur_collecte_id', 'id');
 
     }
 
     public function livreurLivraison(){
 
-        return $this->hasOne(Livreur::class);
+        return $this->hasOne(Livreur::class, 'livreur_livraison_id', 'id');
 
     }
 
     public function commandeStatut(){
 
-        return $this->hasOne(CommandeStatut::class);
+        return $this->hasOne(CommandeStatut::class, 'commande_statut_id', 'id');
 
     }
 

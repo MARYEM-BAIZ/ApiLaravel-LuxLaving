@@ -14,13 +14,13 @@ class Paiement extends Model
     // setting models relations
     public function commande(){
 
-        return $this->hasOne(Commande::class, 'commande_id', 'id');
+        return $this->hasOne(Commande::class);
 
     }
 
     public function paiementType(){
 
-        return $this->bhasOne(PaiementType::class, 'id', 'id');
+        return $this->bhasOne(PaiementType::class);
 
     }
 }

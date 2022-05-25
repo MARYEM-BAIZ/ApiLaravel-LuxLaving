@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('utilisateur_statuts', function (Blueprint $table) {
             $table->id();
+
+            $table->string('type');
+
             $table->timestamps();
         });
     }

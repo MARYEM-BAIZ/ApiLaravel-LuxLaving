@@ -15,20 +15,20 @@ class Article extends Model
     // setting models relations
     public function articleCategorie(){
 
-        return $this->hasOne(ArticleCategorie::class, 'article_cat', 'id');
+        return $this->hasOne(ArticleCategorie::class);
 
     }
 
     public function service(){
 
-        return $this->hasOne(Service::class, 'prestation_id', 'id');
+        return $this->hasOne(Service::class);
 
     }
 
     public function commandeDetails()
     {
 
-        return $this->hasMany(CommandeDetail::class, 'adresse_livraison', 'id');
+        return $this->hasMany(CommandeDetail::class);
 
     }
 }
