@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
 
-            $table->unsignedBigInteger('utilisateursStatut_id');
+            $table->unsignedBigInteger('utilisateursStatut_id')->nullable();
             $table->foreign('utilisateursStatut_id')->references('id')->on('utilisateur_statuts');
 
             $table->timestamps();
