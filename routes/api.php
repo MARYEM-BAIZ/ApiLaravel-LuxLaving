@@ -19,13 +19,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('utilisateurs')->group(function () {
 
-    Route::post('/utilisateur/register',[UtilisateurController::class, 'register'])->name('utilisateur.register');
+ Route::post('login', [AuthController::class, 'signin']);
+ Route::post('register', [AuthController::class, 'signup']);
 
-});
+// Route::middleware('auth:sanctum')->group( function () {
+//     Route::resource('products', ProductController::class);
+// });
+// Route::prefix('utilisateurs')->group(function () {
 
-Route::get('/users',function (Request $request) {
-    $users = Utilisateur::all();
-    return $users;
-});
+//     Route::post('/utilisateur/register',[UtilisateurController::class, 'register'])->name('utilisateur.register');
+
+// });
+
+// Route::get('/users',function (Request $request) {
+//     $users = Utilisateur::all();
+//     return $users;
+// });

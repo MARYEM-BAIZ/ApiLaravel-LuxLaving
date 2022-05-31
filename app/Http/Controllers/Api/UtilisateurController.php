@@ -26,7 +26,7 @@ class UtilisateurController extends Controller
      */
     public function register(Request $request)
     {
-        return response()->json(User::create( $request->all() ), 201)->header('message', 'user added succefly');
+
     }
 
     /**
