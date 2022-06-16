@@ -3,6 +3,7 @@
 use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // });
 
-// Route::get('/users',function (Request $request) {
-//     $users = Utilisateur::all();
-//     return $users;
-// });
+ Route::get('/users',function (Request $request) {
+     $users = Utilisateur::all();
+     return $users;
+ });
