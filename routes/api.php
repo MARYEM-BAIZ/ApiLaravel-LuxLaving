@@ -28,13 +28,16 @@ Route::post('login', [AuthController::class, 'signin']);
 
 Route::post('register', [AuthController::class, 'signup']);
 
-
 // Protected routes
 Route::middleware('auth:sanctum')->group( function () {
 
-    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/logout', [AuthController::class, 'logout']);
 
-    Route::get('/userss',[UtilisateurController::class, 'index']);
+    Route::get('/userss',function (Request $request) {
+        $users = User::all();
+        return $users;
+    });
+
 
 });
 
@@ -45,6 +48,8 @@ Route::middleware('auth:sanctum')->group( function () {
 
 // });
 
+
+// for test
 Route::get('/users',function (Request $request) {
     $users = Utilisateur::all();
     return $users;

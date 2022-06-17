@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\Api\BaseController as BaseController;
 
-class UtilisateurController extends BaseController
+class UtilisateurController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +15,7 @@ class UtilisateurController extends BaseController
      */
     public function index()
     {
-        $users = User::all();
-
-        return $this->sendResponse($users, 'users retrieved successfully.');
+        //
     }
 
     /**
