@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\BaseController as BaseController;
 
 class AuthController extends BaseController
 {
+    // register
     public function signin(Request $request)
     {
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
@@ -23,6 +24,8 @@ class AuthController extends BaseController
             return $this->sendError('Unauthorised.', ['error'=>'Unauthorised']);
         }
     }
+
+    // login
     public function signup(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -45,6 +48,7 @@ class AuthController extends BaseController
         return $this->sendResponse($success, 'User created successfully.');
     }
 
+    // logout
     public function logout(Request $request)
     {
 
