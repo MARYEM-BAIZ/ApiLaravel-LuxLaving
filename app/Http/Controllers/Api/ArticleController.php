@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Article;
 
 class ArticleController extends Controller
 {
@@ -14,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Article::all(),200)->header('message','all articles');
     }
 
     /**
@@ -25,7 +26,15 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'label' => 'required|max:255',
+            'description' => 'required|max:255',
+            'prix' => 'required|numeric',
+            'categorie_id' => 'required|integer',
+            'service_id' => 'required|integer'
+          ]);
+
+        return response()->json(Article::create( $request->all() ), 201)->header('message', 'article added succesfly');
     }
 
     /**

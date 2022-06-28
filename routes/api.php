@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UtilisateurController;
+use App\Http\Controllers\Api\ArticleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,14 @@ use App\Http\Controllers\Api\UtilisateurController;
 Route::post('login', [AuthController::class, 'signin']);
 
 Route::post('register', [AuthController::class, 'signup']);
+
+Route::prefix('article')->group(function () {
+
+    Route::get('articles', [ArticleController::class, 'index']);
+    Route::post('store', [ArticleController::class, 'store']);
+
+});
+
 
 // Protected routes
 Route::middleware('auth:sanctum')->group( function () {

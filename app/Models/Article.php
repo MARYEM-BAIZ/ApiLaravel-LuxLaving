@@ -12,6 +12,8 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['label','description','prix','categorie_id','service_id'];
+
     // setting models relations
     public function articleCategorie(){
 
