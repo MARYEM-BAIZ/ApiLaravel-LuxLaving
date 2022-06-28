@@ -34,6 +34,7 @@ Route::prefix('article')->group(function () {
 
     Route::get('articles', [ArticleController::class, 'index']);
     Route::post('store', [ArticleController::class, 'store']);
+    Route::get('articlesByService/{id}', [ArticleController::class, 'articlesByService']);
 
 });
 

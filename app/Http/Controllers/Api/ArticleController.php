@@ -70,4 +70,17 @@ class ArticleController extends Controller
     {
         //
     }
+
+    /**
+     * selecting articles by service.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function articlesByService($id)
+    {
+        $articles = Article::all()->where('service_id', $id);
+
+        return response()->json($articles,200)->header('message','all the articles selected by service');
+    }
 }
