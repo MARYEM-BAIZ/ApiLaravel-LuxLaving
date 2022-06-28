@@ -12,7 +12,7 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['label','description','prix','categorie_id','service_id'];
+    protected $fillable = ['label','description','prix','categorie_id','service_id','image'];
 
     // setting models relations
     public function articleCategorie(){

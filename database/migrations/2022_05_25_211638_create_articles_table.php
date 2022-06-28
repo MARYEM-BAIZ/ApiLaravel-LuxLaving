@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('label');
             $table->string('description');
             $table->decimal('prix');
+            $table->string('image')->nullable();
 
             $table->unsignedBigInteger('categorie_id');
             $table->foreign('categorie_id')->references('id')->on('article_categories');

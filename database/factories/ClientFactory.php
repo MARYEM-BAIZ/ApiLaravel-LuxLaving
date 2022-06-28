@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Utilisateur;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,7 +21,7 @@ class ClientFactory extends Factory
             'nom' => $this->faker->word(),
             'prenom' => $this->faker->word(),
             'phone' => $this->faker->numerify('#####'),
-            'user_id' => Utilisateur::all()->random()->id
+            'user_id' => User::all()->random()->id
         ];
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Compte;
-use App\Models\Utilisateur;
+use App\Models\User;
 use App\Models\ClientAdresseCollect;
 use App\Models\ClientAdresseLivraison;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +16,7 @@ class Client extends Model
     // setting models relations
     public function utilisateur(){
 
-        return $this->hasOne(Utilisateur::class, 'user_id', 'id');
+        return $this->hasOne(User::class, 'user_id', 'id');
 
     }
 

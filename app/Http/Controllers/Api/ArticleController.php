@@ -31,10 +31,34 @@ class ArticleController extends Controller
             'description' => 'required|max:255',
             'prix' => 'required|numeric',
             'categorie_id' => 'required|integer',
-            'service_id' => 'required|integer'
+            'service_id' => 'required|integer',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
           ]);
 
-        return response()->json(Article::create( $request->all() ), 201)->header('message', 'article added succesfly');
+          // image's path
+          $original_name =  $request->image->getClientOriginalName();
+
+          $filename =  pathinfo($original_name,PATHINFO_FILENAME);
+
+          $extension =  $request->image->getClientOriginalExtension();
+
+          $filename_store = $filename.time().'.'.$extension;
+
+          $request->image->move('images', $filename_store);
+
+          // saving the article
+          $article = new Article;
+
+          $article->label = $request->label;
+          $article->description = $request->description;
+          $article->prix = $request->prix;
+          $article->image = 'images/' .$filename_store ;
+          //$article->image = $request->image ;
+          $article->categorie_id = $request->categorie_id;
+          $article->service_id = $request->service_id;
+          $article->save();
+
+        return response()->json($article, 201)->header('message', 'article added succesfly');
     }
 
     /**

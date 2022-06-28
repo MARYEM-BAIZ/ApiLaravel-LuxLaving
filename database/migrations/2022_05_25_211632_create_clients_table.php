@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('phone');
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('utilisateurs');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });

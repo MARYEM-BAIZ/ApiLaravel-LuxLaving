@@ -14,6 +14,6 @@ class UtilisateurSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Utilisateur::factory(7)->create();
+        \App\Models\User::factory(7)->create();
     }
 }

@@ -10,6 +10,8 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Client;
+use App\Models\UtilisateurStatut;
 
 class User extends Authenticatable
 {
@@ -58,4 +60,17 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    // setting models relations
+    public function utilisateurStatut(){
+
+        return $this->belongsTo(UtilisateurStatut::class, 'utilisateurstatut_id', 'id');
+
+    }
+
+    public function client(){
+
+        return $this->belongsTo(Client::class);
+
+    }
 }
