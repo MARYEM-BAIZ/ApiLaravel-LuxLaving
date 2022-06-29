@@ -5,8 +5,10 @@ use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\UtilisateurController;
+use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\ArticleController;
+use App\Http\Controllers\Api\LivreurController;
+use App\Http\Controllers\Api\UtilisateurController;
 
 
 /*
@@ -35,6 +37,18 @@ Route::prefix('article')->group(function () {
     Route::get('articles', [ArticleController::class, 'index']);
     Route::post('store', [ArticleController::class, 'store']);
     Route::get('articlesByService/{id}', [ArticleController::class, 'articlesByService']);
+
+});
+
+Route::prefix('livreur')->group(function () {
+
+    Route::get('livreurs', [LivreurController::class, 'index']);
+
+});
+
+Route::prefix('client')->group(function () {
+
+    Route::get('clients', [ClientController::class, 'index']);
 
 });
 

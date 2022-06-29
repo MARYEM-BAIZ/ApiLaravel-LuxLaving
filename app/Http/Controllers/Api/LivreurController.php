@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Livreur;
 use Illuminate\Http\Request;
 
 class LivreurController extends Controller
@@ -14,7 +15,7 @@ class LivreurController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Livreur::all(),200)->header('message','all livreurs');
     }
 
     /**

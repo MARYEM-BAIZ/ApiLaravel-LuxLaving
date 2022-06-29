@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -14,7 +15,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Client::all(),200)->header('message','all articles');
     }
 
     /**
