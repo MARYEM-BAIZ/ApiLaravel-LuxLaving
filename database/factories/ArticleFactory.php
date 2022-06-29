@@ -22,7 +22,7 @@ class ArticleFactory extends Factory
             'label' => $this->faker->word(),
             'description' => $this->faker->sentence(),
             'prix' => $this->faker->randomDigitNotNull(),
-            'image' => $this->faker->image('public/images',640,480, null, false),
+            'image' => $this->faker->imageUrl(150,150),
             'categorie_id' => ArticleCategorie::all()->random()->id,
             'service_id' => Service::all()->random()->id
         ];
